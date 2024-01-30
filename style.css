@@ -1,11 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@font-face {
+    font-family: vc;
+    src: url(font/vc.ttf);
+  }
+
 body {
     height: 100vh;
     border: 0px;
     padding: 0px;
     margin: 0px;
     display: grid;
-    grid-template-columns: 300px minmax(300px, 1fr);
+    grid-template-columns: 222px minmax(300px, 1fr);
     grid-template-rows: 77px 1fr;
+    font-family: Montserrat;
 }
 
 /* WE GIVE THE MAIN PAGE SOME FORMAT */
@@ -14,16 +21,49 @@ body {
     background-color: #eeeeee;
     grid-column: 1 / 2;
     grid-row: 1 / 3;
+    display: grid;
+    grid-template-rows: 0.11fr 50px;
+    padding: 0px 33px
 }
 
 .nav {
-    background-color: #979797;
+    background-color: #666666;
     grid-column: 2 / 3;
     grid-row: 1 / 2;
+    display: flex;
+    align-items: center;
 }
 
 .content {
     background-color: white;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+    box-shadow: 0px -1px 15px -5px rgba(0,0,0,0.75) inset;
+    -webkit-box-shadow: 0px -1px 15px -5px rgba(0,0,0,0.75) inset;
+    -moz-box-shadow: 0px -1px 15px -5px rgba(0,0,0,0.75) inset;
+}
+
+/* App title */
+
+.webtitle {
+    font-family: vc;
+    color: black;
+}
+
+.subtitle {
+    color:#282727;
+}
+
+.options {
+    list-style: none;
+    color: #4c4c4c;
+}
+
+.options li {
+    padding: 3px 0;
+}
+
+.protitle {
+    color: white;
+    padding-left: 33px;
 }
