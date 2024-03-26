@@ -58,6 +58,7 @@ function render () {
     
     if(selectedListId == null) {
         listDisplayContainer.style.display = "none";
+        listTitleElement.innerText = "";
     } else {
         listDisplayContainer.style.display = "";
         listTitleElement.innerText = selectedList.name;
