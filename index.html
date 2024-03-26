@@ -10,17 +10,79 @@
     <div class="sidebar">
         <h1 class="webtitle">Tasktracer</h1>
         <h2 class="subtitle">Projects</h2>
-        <ul class="options">
-            <li>New project</li>
+        <ul class="options" data-list>
+            <!-- <li class="active-option">New project</li>
+            <li>Dummy new</li>
             <li>Dummy text</li>
-            <li>Dummy text</li>
-            <li>Dummy text</li>
+            <li>Dummy text</li> -->
         </ul>
+        <form action="" class="sidebarp" data-new-list-form>
+            <input class="new projectin" type="text" name="" id="" placeholder="New project" data-new-list-input>
+            <button class="button-new">+</button>
+        </form>
+        
     </div>
     <div class="nav">
         <h3 class="protitle">My project title</h1>
     </div>
-    <div class="content"></div>
+    <div class="content">
+
+        <div class="todo-body">
+
+            <div class="tasks">
+                <div class="task">
+                    <input type="checkbox" name="" id="task-1">
+                    <label for="task-1">
+                        <span class="custom-checkbox"></span> 
+                        Task number 1
+                    </label>
+                </div>
+
+                <div class="task">
+                    <input type="checkbox" name="" id="task-2">
+                    <label for="task-2">
+                        <span class="custom-checkbox"></span> 
+                        Task number 2
+                    </label>
+                </div>
+
+                <div class="task">
+                    <input type="checkbox" name="" id="task-3">
+                    <label for="task-3">
+                        <span class="custom-checkbox"></span> 
+                        Task number 3
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="task-form">
+                <form action="" class="task-input">
+                    
+                    <input type="text" name="" id="" class="new list" placeholder="New task name" aria-label="New task name">
+                    
+                        <div class="downform">
+                            <input type="date" id="" name="" class="otherinputs"/>
+                            <select name="" class="otherinputs">
+                                <option name="">Low</option>
+                                <option name="">Normal</option>
+                                <option name="">High</option>
+                            </select>
+                            <button class="button-new" aria-label="create new task">+</button>                
+                        </div>
+
+                </form>
+            </div>
+
+            <div class="deletelist">
+                <button class="btn-delete">Remove this list</button>
+            </div>
+
+
+        </div>
+
+    </div>
+
     <script src="main.js"></script>
 </body>
 </html>
