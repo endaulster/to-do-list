@@ -56,7 +56,7 @@ body {
 }
 
 .options {
-    list-style:disc;
+    list-style:circle;
     color: #4c4c4c;
 }
 
@@ -71,7 +71,7 @@ body {
 .active-option {
     font-size: 1.15rem;
     color: #450031;
-    list-style:circle;
+    list-style:disc;
 }
 
 .protitle {
