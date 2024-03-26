@@ -5,6 +5,7 @@
   }
 
 body {
+    
     height: 100vh;
     border: 0px;
     padding: 0px;
@@ -22,7 +23,7 @@ body {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
     display: grid;
-    grid-template-rows: 0.11fr 50px;
+    grid-template-rows: 0.11fr 50px 0.33fr 1fr;
     padding: 0px 33px
 }
 
@@ -47,7 +48,7 @@ body {
 
 .webtitle {
     font-family: vc;
-    color: black;
+    color: rgb(255, 140, 215);
 }
 
 .subtitle {
@@ -55,15 +56,174 @@ body {
 }
 
 .options {
-    list-style: none;
+    list-style:disc;
     color: #4c4c4c;
+}
+
+.options:hover {
+    cursor: pointer;
 }
 
 .options li {
     padding: 3px 0;
 }
 
+.active-option {
+    font-size: 1.15rem;
+    color: #450031;
+    list-style:circle;
+}
+
 .protitle {
     color: white;
     padding-left: 33px;
 }
+
+.sidebarp {
+    display:flex;
+    width: 10px;
+    height: 22px;
+    gap: 7px;
+    align-items: center;
+}
+
+.new {
+    border:0;
+    border-radius: 33px;
+    background-color: #d1d1d1;
+    width: 300px;
+    height: 25px;
+    
+}
+
+::placeholder {
+    text-indent: 20px;
+    color: rgba(0, 0, 0, 0.299);
+}
+
+input {
+    color:black;
+    text-indent: 20px;
+}
+
+
+.todo-body {
+    padding: 22px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap:11px;
+    width: 80vh;
+    
+}
+
+.content {
+    padding:33px;
+}
+
+.otherinputs {
+    border: 0px;
+    border-radius: 33px;
+    background-color: #d1d1d1;
+    height: 25px;
+    width: 130px;
+    text-indent: 10px;
+    
+}
+
+.task-input {
+    display: flex;
+    flex-direction: column;
+    gap:11px
+}
+
+.button-new {
+    border: 0;
+    background: none;
+    font-weight: 800;
+    height: 25px;
+    width: 25px;
+    font-size: 1.22rem;
+    color: rgb(12, 70, 0);
+}
+
+.button-new:hover {
+    cursor: pointer;
+}
+
+body > div.sidebar > form > input {
+    width: 150px;
+}
+
+.btn-delete {
+    border: none;
+    background: none;
+    font-size: 1rem;
+}
+
+.btn-delete:hover {
+    color: rgb(156, 156, 156);
+    cursor:pointer;
+}
+
+body > div.content > div > div.todo-header > h2 {
+    padding-top: 0px;
+    margin-top:7px;
+}
+
+[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+}
+
+.custom-checkbox {
+    --size: .75em;
+    display: inline-block;
+    width: var(--size);
+    height: var(--size);
+    margin-right: var(--size);
+    cursor: pointer;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: transform 100ms ease-in-out;
+    border-color:  rgb(145, 145, 145);
+}
+
+.task label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 1em;
+    
+}
+
+.task:hover .custom-checkbox,
+[type="checkbox"]:focus + label .custom-checkbox {
+    transform: scale(1.1);
+    
+}
+
+.task label::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: -33%;
+    height: 2px;
+    background-color: currentColor;
+    opacity: .077;
+
+}
+
+[type="checkbox"]:checked + label .custom-checkbox {
+    background-color: rgb(145, 145, 145);
+    box-shadow: inset 0 0 0px 3px white;
+    border-color:  rgb(145, 145, 145);
+}
+
+.downform {
+    display: flex;
+    gap: 12px;
+}
+
