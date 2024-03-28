@@ -7,6 +7,7 @@ const deleteListButton = document.querySelector("[data-delete-list-button]");
 const listDisplayContainer = document.querySelector("[data-list-display-container]");
 const listTitleElement = document.querySelector("[data-list-title]");
 const taskContainer = document.querySelector("[data-task]");
+const listCountElement = document.querySelector("[data-list-count]");
 
 const LOCAL_STORAGE_LIST_KEY = "task.lists";
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = "task.selectedListId";
@@ -62,7 +63,15 @@ function render () {
     } else {
         listDisplayContainer.style.display = "";
         listTitleElement.innerText = selectedList.name;
+        renderTaskCount(selectedList);
     }
+}
+
+function renderTaskCount(selectedList){
+    const incompleteTaskCount = selectedList.tasks.filter(task => !task.complete).length;
+    const taskString = incompleteTaskCount === 1 ? "task" : "tasks";
+    listCountElement.innerText = `${incompleteTaskCount} ${taskString} remaining`;
+    
 }
 
 function renderLists() {
