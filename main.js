@@ -6,7 +6,7 @@ const deleteListButton = document.querySelector("[data-delete-list-button]");
 
 const listDisplayContainer = document.querySelector("[data-list-display-container]");
 const listTitleElement = document.querySelector("[data-list-title]");
-const taskContainer = document.querySelector("[data-task]");
+const taskContainer = document.querySelector("[data-tasks]");
 const listCountElement = document.querySelector("[data-list-count]");
 
 const LOCAL_STORAGE_LIST_KEY = "task.lists";
@@ -64,6 +64,7 @@ function render () {
         listDisplayContainer.style.display = "";
         listTitleElement.innerText = selectedList.name;
         renderTaskCount(selectedList);
+        clearElement(taskContainer);
     }
 }
 
