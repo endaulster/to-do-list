@@ -34,8 +34,8 @@
                     <input type="text" name="" id="" class="new list" placeholder="New task name" aria-label="New task name" data-new-task-input>
                     
                         <div class="downform">
-                            <input type="date" id="" name="" class="otherinputs"/>
-                                <select name="" class="otherinputs">
+                            <input type="date" id="" name="" class="otherinputs" data-new-task-date/>
+                                <select name="" class="otherinputs" data-new-task-priority>
                                     <option name="">Low</option>
                                     <option name="">Normal</option>
                                     <option name="">High</option>
@@ -60,7 +60,12 @@
             <input type="checkbox">
             <label>
                 <span class="custom-checkbox"></span> 
+   
             </label>
+            <div class="priodatewrapper">
+                <div class="priority-div"></div>
+                <div class="date-div"></div>
+            </div>
         </div>
     </template>
     <script src="main.js"></script>
