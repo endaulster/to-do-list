@@ -17,6 +17,22 @@ const newTaskDate = document.querySelector("[data-new-task-date]");
 const LOCAL_STORAGE_LIST_KEY = "task.lists";
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = "task.selectedListId";
 
+const priorityStyleMap = {
+    "Low": {
+        background: "#aee1e1",
+        fontColor: "#35495e"
+    },
+    "Normal": {
+        background: "#fdc500",
+        fontColor: "#654321"
+    },
+    "High": {
+        background: "#dc0000",
+        fontColor: "#f0f0f0"
+    }
+};
+
+
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
 let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY);
 
@@ -116,7 +132,7 @@ function resetDate(){
 }
 
 function renderTasks(selectedList) {
-
+   
     selectedList.tasks.forEach(task => {
         const taskElement = document.importNode(taskTemplate.content, true);
         const checkbox = taskElement.querySelector("input");
@@ -133,16 +149,30 @@ function renderTasks(selectedList) {
         dateDiv.textContent = parseDate(task.date);
 
         taskContainer.appendChild(taskElement);
+       
+        const priorityValue = priorityDiv.textContent;
+        const priorityStyle = priorityStyleMap[priorityValue];
+       
+        priorityDiv.style.background = priorityStyle.background;
+        priorityDiv.style.color = priorityStyle.fontColor;
+
+
         
     })
 }
 
+
+
 function parseDate(date){
 
-    const originalDate = new Date(date);
-    const day = originalDate.getDate();
-    const month = originalDate.getMonth() + 1; 
-    const year = originalDate.getFullYear();
+    const originalDate = new Date(date + 'T00:00:00');
+    const timezoneOffset = originalDate.getTimezoneOffset() * 60000; 
+    const adjustedDate = new Date(originalDate.getTime() + timezoneOffset);
+    
+    
+    const day = adjustedDate.getDate();
+    const month = adjustedDate.getMonth() + 1; 
+    const year = adjustedDate.getFullYear();
 
     const formattedDay = day < 10 ? '0' + day : day;
     const formattedMonth = month < 10 ? '0' + month : month;
