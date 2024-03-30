@@ -11,6 +11,8 @@ const listCountElement = document.querySelector("[data-list-count]");
 const taskTemplate = document.querySelector("#task-template")
 const newTaskForm = document.querySelector("[data-new-task-form]");
 const newTaskInput = document.querySelector("[data-new-task-input]");
+const newTaskPriority = document.querySelector("[data-new-task-priority]");
+const newTaskDate = document.querySelector("[data-new-task-date]");
 
 const LOCAL_STORAGE_LIST_KEY = "task.lists";
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = "task.selectedListId";
@@ -54,8 +56,10 @@ newListForm.addEventListener("submit", e => {
 newTaskForm.addEventListener("submit", e => {
     e.preventDefault();
     const taskName = newTaskInput.value;
+    const priorityNow = newTaskPriority.value;
+    const taskDateNow = newTaskDate.value;
     if( taskName == null || taskName === "") return
-    const task = createTask(taskName);
+    const task = createTask(taskName, priorityNow, taskDateNow);
     newTaskInput.value = null;
     const selectedList = lists.find(list => list.id === selectedListId)
     selectedList.tasks.push(task);
@@ -63,11 +67,19 @@ newTaskForm.addEventListener("submit", e => {
 })
 
 function createList(name) {
-    return { id: Date.now().toString(), name: name, tasks: [] }
+    return { id: Date.now().toString(), 
+        name: name, 
+        tasks: [] 
+    }
 }
 
-function createTask(name) {
-    return { id: Date.now().toString(), name: name, complete: false }
+function createTask(name, priority, date) {
+    return { id: Date.now().toString(), 
+        name: name, 
+        complete: false,
+        priority: priority,
+        date: date
+    }
 }
 
 function save() {
@@ -107,6 +119,15 @@ function renderTasks(selectedList) {
         const label = taskElement.querySelector("label");
         label.htmlFor = task.id;
         label.append(task.name);
+
+        const priorityDiv = taskElement.querySelector(".priority-div");
+        const dateDiv = taskElement.querySelector(".date-div");
+    
+        priorityDiv.textContent = task.priority;
+        dateDiv.textContent = task.date;
+
+        
+
         taskContainer.appendChild(taskElement);
         
     })
