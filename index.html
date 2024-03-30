@@ -53,17 +53,17 @@
             </div>
 
             <div class="task-form">
-                <form action="" class="task-input">
+                <form action="" class="task-input" data-new-task-form>
                     
-                    <input type="text" name="" id="" class="new list" placeholder="New task name" aria-label="New task name">
+                    <input type="text" name="" id="" class="new list" placeholder="New task name" aria-label="New task name" data-new-task-input>
                     
                         <div class="downform">
                             <input type="date" id="" name="" class="otherinputs"/>
-                            <select name="" class="otherinputs">
-                                <option name="">Low</option>
-                                <option name="">Normal</option>
-                                <option name="">High</option>
-                            </select>
+                                <select name="" class="otherinputs">
+                                    <option name="">Low</option>
+                                    <option name="">Normal</option>
+                                    <option name="">High</option>
+                                </select>
                             <button class="button-new" aria-label="create new task">+</button>                
                         </div>
 
@@ -79,6 +79,16 @@
 
     </div>
 
+    <template id="task-template">
+        <div class="task">
+            <input type="checkbox">
+            <label>
+                <span class="custom-checkbox"></span> 
+            </label>
+        </div>
+    </template>
     <script src="main.js"></script>
+
+
 </body>
 </html>
