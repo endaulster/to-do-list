@@ -103,10 +103,16 @@ function render () {
     } else {
         listDisplayContainer.style.display = "";
         listTitleElement.innerText = selectedList.name;
+        resetDate();
         renderTaskCount(selectedList);
         clearElement(taskContainer);
         renderTasks(selectedList);
     }
+}
+
+function resetDate(){
+    const today = new Date().toISOString().split('T')[0];
+    newTaskDate.value = today;
 }
 
 function renderTasks(selectedList) {
@@ -124,13 +130,25 @@ function renderTasks(selectedList) {
         const dateDiv = taskElement.querySelector(".date-div");
     
         priorityDiv.textContent = task.priority;
-        dateDiv.textContent = task.date;
-
-        
+        dateDiv.textContent = parseDate(task.date);
 
         taskContainer.appendChild(taskElement);
         
     })
+}
+
+function parseDate(date){
+
+    const originalDate = new Date(date);
+    const day = originalDate.getDate();
+    const month = originalDate.getMonth() + 1; 
+    const year = originalDate.getFullYear();
+
+    const formattedDay = day < 10 ? '0' + day : day;
+    const formattedMonth = month < 10 ? '0' + month : month;
+    const formattedDate = `${formattedDay}-${formattedMonth}-${year}`;
+
+    return formattedDate;
 }
 
 function renderTaskCount(selectedList){
@@ -160,4 +178,7 @@ function clearElement(element) {
 }
 
 render();
+
+
+
 
