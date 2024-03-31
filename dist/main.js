@@ -15,6 +15,8 @@ const newTaskPriority = document.querySelector("[data-new-task-priority]");
 const newTaskDate = document.querySelector("[data-new-task-date]");
 const clearCompleteTasksButton = document.querySelector("[data-clear-complete-task-button]"); 
 
+let modal = document.getElementById("modal-selector");
+
 const LOCAL_STORAGE_LIST_KEY = "task.lists";
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = "task.selectedListId";
 
@@ -32,7 +34,6 @@ const priorityStyleMap = {
         fontColor: "#f0f0f0"
     }
 };
-
 
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
 let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY);
@@ -53,6 +54,31 @@ taskContainer.addEventListener("click", e => {
         renderTaskCount(selectedList);
     }
 })
+
+document.addEventListener("click", e => {
+    
+    if (e.target.classList.contains("modify-task-button")) {
+        modal.classList.add("visible");
+        toggleBlur();
+    }
+});
+
+theForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    modal.classList.remove("visible");
+    theForm.reset();
+    toggleBlur();
+})
+
+function toggleBlur() {
+    var elements = document.body.children; 
+
+    for (var i = 0; i < elements.length; i++) {
+        if (!elements[i].classList.contains("modify-task-modal")) { 
+            elements[i].classList.toggle("active"); 
+        }
+    }
+}
 
 clearCompleteTasksButton.addEventListener("click", e => {
     const selectedList = lists.find(list => list.id === selectedListId);
@@ -149,10 +175,14 @@ function renderTasks(selectedList) {
         const label = taskElement.querySelector("label");
         label.htmlFor = task.id;
         label.append(task.name);
+        
+        const modifyTaskButton = taskElement.querySelector(".modify-task-button");
+        modifyTaskButton.id = task.id;
 
         const priorityDiv = taskElement.querySelector(".priority-div");
         const dateDiv = taskElement.querySelector(".date-div");
-    
+
+
         priorityDiv.textContent = task.priority;
         dateDiv.textContent = parseDate(task.date);
 
@@ -163,13 +193,8 @@ function renderTasks(selectedList) {
        
         priorityDiv.style.background = priorityStyle.background;
         priorityDiv.style.color = priorityStyle.fontColor;
-
-
-        
     })
 }
-
-
 
 function parseDate(date){
 
