@@ -13,6 +13,7 @@ const newTaskForm = document.querySelector("[data-new-task-form]");
 const newTaskInput = document.querySelector("[data-new-task-input]");
 const newTaskPriority = document.querySelector("[data-new-task-priority]");
 const newTaskDate = document.querySelector("[data-new-task-date]");
+const clearCompleteTasksButton = document.querySelector("[data-clear-complete-task-button]"); 
 
 const LOCAL_STORAGE_LIST_KEY = "task.lists";
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = "task.selectedListId";
@@ -52,6 +53,13 @@ taskContainer.addEventListener("click", e => {
         renderTaskCount(selectedList);
     }
 })
+
+clearCompleteTasksButton.addEventListener("click", e => {
+    const selectedList = lists.find(list => list.id === selectedListId);
+    selectedList.tasks = selectedList.tasks.filter(task => !task.complete);
+    saveAndRender();
+})
+
 
 deleteListButton.addEventListener("click", e => {
     lists = lists.filter(list => list.id !== selectedListId);
@@ -168,7 +176,6 @@ function parseDate(date){
     const originalDate = new Date(date + 'T00:00:00');
     const timezoneOffset = originalDate.getTimezoneOffset() * 60000; 
     const adjustedDate = new Date(originalDate.getTime() + timezoneOffset);
-    
     
     const day = adjustedDate.getDate();
     const month = adjustedDate.getMonth() + 1; 
