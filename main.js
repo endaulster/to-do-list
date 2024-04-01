@@ -35,7 +35,42 @@ const priorityStyleMap = {
     }
 };
 
-let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
+let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [
+    { 
+        id: Date.now().toString() + Math.random(), 
+        name: "Coding Goals", 
+        tasks: [
+            createTask("Finish JavaScript tutorial", 'High', "2024-04-01"),
+            createTask("Complete coding project", 'Normal', "2024-04-03"),
+            createTask("Practice algorithms", 'Low', "2024-04-05"),
+            createTask("Review code documentation", 'Normal', "2024-04-07"),
+            createTask("Attend coding meetup", 'Low', "2024-04-10")
+        ] 
+    },
+    { 
+        id: Date.now().toString() + Math.random(), 
+        name: "Grocery Shopping", 
+        tasks: [
+            createTask("Buy fruits and vegetables", 'High', "2024-04-01"),
+            createTask("Purchase milk and eggs", 'Normal', "2024-04-02"),
+            createTask("Get bread and cereal", 'Low', "2024-04-04"),
+            createTask("Pick up snacks", 'Normal', "2024-04-06"),
+            createTask("Buy cleaning supplies", 'Low', "2024-04-08")
+        ] 
+    },
+    { 
+        id: Date.now().toString() + Math.random(), 
+        name: "Fitness Plan", 
+        tasks: [
+            createTask("Go for a run", 'High', "2024-04-01"),
+            createTask("Do strength training", 'Normal', "2024-04-03"),
+            createTask("Stretch and flexibility exercises", 'Low', "2024-04-05"),
+            createTask("Attend yoga class", 'Normal', "2024-04-07"),
+            createTask("Rest and recovery day", 'Low', "2024-04-09")
+        ] 
+    }
+];
+
 let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY);
 
 listContainer.addEventListener("click", e => {
