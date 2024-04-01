@@ -58,17 +58,40 @@ taskContainer.addEventListener("click", e => {
 document.addEventListener("click", e => {
     
     if (e.target.classList.contains("modify-task-button")) {
+        let taskId = e.target.id;
+        modifyForm.setAttribute("data-form-id", taskId); 
         modal.classList.add("visible");
         toggleBlur();
     }
 });
 
-theForm.addEventListener("submit", (e) => {
+modifyForm.addEventListener("submit", (e) => {
     e.preventDefault();
     modal.classList.remove("visible");
-    theForm.reset();
+    const taskId = modifyForm.getAttribute("data-form-id");
+    getInfoAndModify(taskId);
     toggleBlur();
+    modifyForm.reset();
 })
+
+function getInfoAndModify(taskId) {
+    let newInfo = document.querySelector("#newTaskInfo").value;
+    let newDate = document.querySelector("#newDateInfo").value;
+    let newPriority = document.querySelector("#newPriorityInfo").value;
+    modifyTask(taskId, newInfo, newPriority, newDate);
+}
+
+function modifyTask(taskId, newName, newPriority, newDate) {
+
+    const selectedList = lists.find(list => list.id === selectedListId);
+    const selectedTask = selectedList.tasks.find(task => task.id === taskId);
+
+    selectedTask.name = newName;
+    selectedTask.priority = newPriority;
+    selectedTask.date = newDate;
+    
+    saveAndRender();
+}
 
 function toggleBlur() {
     var elements = document.body.children; 
@@ -240,7 +263,3 @@ function clearElement(element) {
 }
 
 render();
-
-
-
-

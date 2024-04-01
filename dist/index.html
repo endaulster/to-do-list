@@ -56,21 +56,17 @@
     </div>
 
     <div class="modify-task-modal" id="modal-selector">
-        <h1>Add New Book</h1>
-        <p>Fill the form and add a new book to your library!</p>
-        <form id="theForm" action="" method="post" onsubmit="">
-            <div class="inputs">
-                <input type="text" id="authorName" placeholder="Author's Name" required>
-            </div>
-            <div class="inputs">
-                <input type="text" id="bookName" placeholder="Book's name" required>
-            </div>
-            <div class="inputs">
-                <input type="number" id="pagesNumber" placeholder="Number of pages" min="0" required>
-            </div>
-            <div class="inputs-buttons">
-                <button id="inputs-status" type="button" onclick="changeStatus()">Not Read</button>
-                <button id="inputs-submit" type="submit">Submit</button>
+        <form id="modifyForm" action="" method="post" onsubmit="">
+            <h2 class="">Modify task</p>
+            <div class="formflex">
+                <input type="text" name="" id="newTaskInfo" class="modalforminput" placeholder="New task name" required>
+                <input type="date" id="newDateInfo" name="" class="modalforminput" required/>
+                <select name="" id="newPriorityInfo" class="modalforminput" required>
+                    <option name="">Low</option>
+                    <option name="">Normal</option>
+                    <option name="">High</option>
+                </select>
+                <button class="modifysubmitbutton">Modify</button>                
             </div>
         </form>
     </div>

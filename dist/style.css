@@ -274,8 +274,8 @@ body > div.content > div > div.todo-header > h2 {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%) scale(0.1);
-    height: 350px;
-    width: 400px;
+    height: 333px;
+    width: 333px;
     padding: 20px;
     border-radius: 15px;
     display: flex;
@@ -299,3 +299,73 @@ body > div.content > div > div.todo-header > h2 {
     pointer-events: none;
     user-select: none;
 }
+
+.formflex {
+    display: flex;
+    flex-direction: column;
+    gap: 33px;
+}
+
+#modifyForm > h2 {
+    text-align: center;
+}
+
+.modalforminput {
+    border: 2px solid transparent;
+    border-radius: 33px;
+    background-color: #d1d1d1;
+    height: 25px;
+    width: 200px;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+    text-align: center;
+}
+
+.modalforminput::placeholder {
+    color: #999;
+}
+
+.modalforminput:focus {
+    border: 2px solid #007bff;
+}
+
+.modifysubmitbutton {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #ffffff;
+    border-radius: 33px;
+    background-color: #868686;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.modifysubmitbutton:hover {
+    background-color: #444444;
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.modifysubmitbutton:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+}
+
+.modifysubmitbutton:active {
+    background-color: #666666;
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+
+
+
