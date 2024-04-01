@@ -182,7 +182,7 @@ function createList(name) {
 }
 
 function createTask(name, priority, date) {
-    return { id: Date.now().toString(), 
+    return { id: Date.now().toString() + Math.random(), 
         name: name, 
         complete: false,
         priority: priority,
