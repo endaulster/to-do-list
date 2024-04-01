@@ -42,9 +42,7 @@ let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [
         tasks: [
             createTask("Finish JavaScript tutorial", 'High', "2024-04-01"),
             createTask("Complete coding project", 'Normal', "2024-04-03"),
-            createTask("Practice algorithms", 'Low', "2024-04-05"),
-            createTask("Review code documentation", 'Normal', "2024-04-07"),
-            createTask("Attend coding meetup", 'Low', "2024-04-10")
+            createTask("Practice algorithms", 'Low', "2024-04-05")
         ] 
     },
     { 
@@ -66,7 +64,9 @@ let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [
             createTask("Do strength training", 'Normal', "2024-04-03"),
             createTask("Stretch and flexibility exercises", 'Low', "2024-04-05"),
             createTask("Attend yoga class", 'Normal', "2024-04-07"),
-            createTask("Rest and recovery day", 'Low', "2024-04-09")
+            createTask("Rest and recovery day", 'Low', "2024-04-09"),
+            createTask("Prepare healthy meals", 'High', "2024-04-02"),
+            createTask("Track progress and set new goals", 'Normal', "2024-04-04")
         ] 
     }
 ];

@@ -366,6 +366,18 @@ body > div.content > div > div.todo-header > h2 {
     color: #ffffff;
 }
 
+.tasks-remaining {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 33px;
+    background-color: #f9f9f9;
+  }
+  
+
 
 
 
